@@ -8,10 +8,12 @@
                 de regras gerados por uma arvore de decisao.
 """
 import os
+import openpyxl
 
-from xlrd import open_workbook
-from xlwt import easyxf
-from xlutils.copy import copy as copy_workbook
+#from xlrd import open_workbook
+#from xlwt import easyxf
+#from xlutils.copy import copy as copy_workbook
+from openpyxl.styles import Font, PatternFill
 
 class AlertaIncendio (object):
     #Inicia a variavel relativa ao caminho dos arquivos utilizados
@@ -162,32 +164,53 @@ class AlertaIncendio (object):
     def comparar(self, result_esp, result_obt):
         diferenca = (result_esp-result_obt)/result_obt
         if diferenca < -0.2:
-            style = easyxf('font: name Calibri, height 220; pattern: pattern solid, fore_colour blue;')
+            #style = easyxf('font: name Calibri, height 220; pattern: pattern solid, fore_colour blue;')
+            style = PatternFill("solid", fgColor="0000FF")
         elif diferenca > +0.2:
-            style = easyxf('font: name Calibri, height 220; pattern: pattern solid, fore_colour red;')
-        else:
-            style = easyxf('font: name Calibri, height 220;')
+            #style = easyxf('font: name Calibri, height 220; pattern: pattern solid, fore_colour red;')
+            style = PatternFill("solid", fgColor="FF0000")
+        #else:
+        #    style = easyxf('font: name Calibri, height 220;')
         return diferenca, style
     
     #Utiliza os dados da tabela pra localizar o coeficiente de incêndio
     def processar(self):
         print "Abrindo o arquivo..."
-        readbook = open_workbook(os.path.join(self.__location__, 'dados.xls'), formatting_info=True, on_demand=True)
-        workbook = copy_workbook(readbook)
+        #readbook = open_workbook(os.path.join(self.__location__, 'dados.xls'), formatting_info=True, on_demand=True)
+        #workbook = copy_workbook(readbook)
+        workbook1 = openpyxl.load_workbook(os.path.join(self.__location__, 'dados.xlsx'), read_only=True)
+        workbook2 = openpyxl.Workbook(write_only=True)
         print "Lendo a planilha..."
-        readsheet = readbook.sheet_by_index(0)
-        worksheet = workbook.get_sheet(0)
-        for row_num in range(readsheet.nrows):
-            if row_num != 0:
-                row = readsheet.row_values(row_num)
-                percentual = AlertaIncendio().avaliar(float(row[2]), float(row[3]), float(row[4]), float(row[5]), float(row[6]), row[7], float(row[8]), float(row[9]))
-                diferenca, style = AlertaIncendio().comparar(float(row[10]), percentual)
-                worksheet.write(row_num, 11, percentual, style)
-                worksheet.write(row_num, 12, diferenca*100, easyxf(num_format_str='0.00'))
-                print 'Calculando {0} de {1}\r'.format(row_num+1, readsheet.nrows),
+        #readsheet = readbook.sheet_by_index(0)
+        #worksheet = workbook.get_sheet(0)
+        worksheet1 = workbook1.active
+        worksheet2 = workbook2.create_sheet()
+        #for row_num in range(readsheet.nrows):
+        for index, cells in enumerate(worksheet1.iter_rows()):
+            if index != 0:
+                #row = readsheet.row_values(row_num)
+                #percentual = AlertaIncendio().avaliar(float(row[2]), float(row[3]), float(row[4]), float(row[5]), float(row[6]), row[7], float(row[8]), float(row[9]))
+                percentual = AlertaIncendio().avaliar(float(cells[2].value), float(cells[3].value), float(cells[4].value), float(cells[5].value), float(cells[6].value), cells[7].value, float(cells[8].value), float(cells[9].value))
+                #diferenca, style = AlertaIncendio().comparar(float(row[10]), percentual)
+                #   diferenca, style = AlertaIncendio().comparar(float(cells[10].value), percentual)
+                #worksheet.write(row_num, 11, percentual, style)
+                #   font = Font(name='Calibri', size=11)
+                #    worksheet2.cell(row=index+1, column=12).font = font
+                #    worksheet2.cell(row=index+1, column=12).fill = style
+                #worksheet.write(row_num, 12, diferenca*100, easyxf(num_format_str='0.00'))
+                #    worksheet2.cell(row=index+1, column=13).number_format = '0.00'
+                #    worksheet2.cell(row=index+1, column=13).value = diferenca*100
+                #print 'Calculando {0} de {1}\r'.format(row_num+1, readsheet.nrows),
+                print 'Calculando {0} de {1}\r'.format(index+1, worksheet1.max_row),
+                worksheet2.append([float(cells[0].value), float(cells[1].value), float(cells[2].value), float(cells[3].value), float(cells[4].value), float(cells[5].value), float(cells[6].value), cells[7].value, int(cells[8].value), float(cells[9].value), float(cells[10].value), percentual])
             else:
-                worksheet.write(row_num, 12, u"ERRO RELATIVO", easyxf('font: name Calibri, height 220;'))
-        workbook.save(os.path.join(self.__location__, 'dados.xls'))
+                #worksheet.write(row_num, 12, u"ERRO RELATIVO", easyxf('font: name Calibri, height 220;'))
+                #    font = Font(name='Calibri', size=11)
+                #    worksheet2.cell(row=index+1, column=13).font = font
+                #   worksheet2.cell(row=index+1, column=13).value = u"ERRO RELATIVO"
+                worksheet2.append([cells[0].value, cells[1].value, cells[2].value, cells[3].value, cells[4].value, cells[5].value, cells[6].value, cells[7].value, cells[8].value, cells[9].value, cells[10].value, cells[11].value])
+        #workbook.save(os.path.join(self.__location__, 'dados.xls'))
+        workbook2.save(os.path.join(self.__location__, 'dados_atualizados.xlsx'))
 
 if __name__ == '__main__':
     AlertaIncendio().processar()
