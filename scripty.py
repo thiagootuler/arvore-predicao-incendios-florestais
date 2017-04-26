@@ -67,13 +67,13 @@ class AlertaIncendio (object):
         if dens_demo <= 3.63463 and uso <= 8 and prec <= 1109.07446 and renda > 864.86499:
             return 0.175612
         #Regra para o nó terminal 7
-        if dens_demo <= 3.26368 and uso <= 8 and prec > 1109.07446 and VCF <= 54.5:
+        if dens_demo <= 3.26368 and uso <= 8 and prec > 1109.07446 and prec<=1138.03552:
             return 0.109868
         #Regra para o nó terminal 8
-        if dens_demo <= 3.26368 and uso <= 8 and prec > 1109.07446 and VCF > 54.5 and DEM <= 44.50000 and temp <= 24.79185:
+        if dens_demo <= 3.26368 and uso <= 8 and prec > 1109.07446 and prec<=1236.40845 and VCF > 54.5 and DEM <= 44.50000:
             return 0.0168376
         #Regra para o nó terminal 9
-        if dens_demo <= 3.26368 and uso <= 8 and prec > 1109.07446 and VCF > 54.5 and DEM <= 44.50000 and temp > 24.79185:
+        if dens_demo <= 3.26368 and uso <= 8 and prec > 1109.07446 and prec<=1236.40845 and VCF > 54.5 and DEM <= 44.50000:
             return 0.131192
         #Regra para o nó terminal 10
         if dens_demo <= 3.26368 and uso <= 8 and prec > 1109.07446 and VCF > 54.5 and DEM > 44.50000:
@@ -82,10 +82,10 @@ class AlertaIncendio (object):
         if dens_demo > 3.26368 and dens_demo <= 3.63463 and uso <= 8 and prec > 1109.07446:
             return 0.139411
         #Regra para o nó terminal 12
-        if dens_demo <= 3.63463 and uso > 8 and prec <= 1350.50757 and renda <= 859.72498 and temp <= 24.75305:
+        if dens_demo <= 3.63463 and uso > 8 and prec <= 1350.50757 and prec<=1236.05347 and renda <= 859.72498:
             return 0.0372407
         #Regra para o nó terminal 13
-        if dens_demo <= 3.63463 and uso > 8 and prec <= 1350.50757 and renda <= 859.72498 and temp > 24.75305:
+        if dens_demo <= 3.63463 and uso > 8 and prec <= 1350.50757 and prec<=1236.05347 and renda <= 859.72498:
             return 0.150805
         #Regra para o nó terminal 14
         if dens_demo <= 3.63463 and uso > 8 and prec <= 1350.50757 and renda > 859.72498:
@@ -103,16 +103,16 @@ class AlertaIncendio (object):
         if dens_demo > 2.35704 and dens_demo <= 3.63463 and uso > 8 and prec > 1350.50757 and renda > 854.57001 and temp <= 24.68275:
             return 0.52072
         #Regra para o nó terminal 19
-        if dens_demo <= 2.35704 and uso > 8 and prec > 1350.50757 and temp > 24.68275 and temp <= 24.71705:
+        if dens_demo <= 2.35704 and uso > 8 and prec > 1350.50757 and prec<=1400.65942:
             return 0.0901171
         #Regra para o nó terminal 20
-        if dens_demo <= 2.35704 and uso > 8 and prec > 1350.50757 and temp > 24.71705:
+        if dens_demo <= 2.35704 and uso > 8 and prec > 1350.50757 and prec<=1400.65942:
             return 0.338749
         #Regra para o nó terminal 21
-        if dens_demo > 2.35704 and dens_demo <= 2.50642 and uso > 8 and prec > 1350.50757 and temp > 24.68275:
+        if uso > 8 and prec > 1350.50757 and prec<=1382.34058 and temp > 24.68275:
             return 0.239003
         #Regra para o nó terminal 22
-        if dens_demo > 2.50642 and dens_demo <= 3.63463 and uso > 8 and prec > 1350.50757 and temp > 24.68275:
+        if uso > 8 and prec > 1350.50757 and prec<=1382.34058 and temp > 24.68275:
             return 0.571113
         #Regra para o nó terminal 23
         if dens_demo > 3.63463 and prec <= 1169.50452 and temp <= 25.03165 and DEM <= 55.50000:
@@ -121,7 +121,7 @@ class AlertaIncendio (object):
         if dens_demo > 3.63463 and prec <= 1169.50452 and temp > 25.03165 and DEM <= 55.50000:
             return 0.0699455
         #Regra para o nó terminal 25
-        if dens_demo > 3.63463 and (uso <= 4 or uso == 6 or uso == 8) and prec > 1169.50452 and renda <= 736.80499 and DEM <= 55.50000:
+        if dens_demo > 3.63463 and (uso <= 4 or uso == 6 or uso == 8) and prec > 1169.50452 and  temp<= 24.66975 and DEM <= 55.50000:
             return 0.0639006
         #Regra para o nó terminal 26
         if dens_demo > 3.63463 and (uso == 5 or uso == 7 or uso > 8) and prec > 1169.50452 and prec <= 1371.60449 and renda <= 736.80499 and DEM <= 55.50000:
