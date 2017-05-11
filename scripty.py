@@ -13,18 +13,35 @@ import openpyxl
 tree = {
     'index': 0, 
     'right': {
-        'index': 6, 
+        'index': 5, 
         'right': {
             'index': 0, 
             'right': {
-                'index': 3, 
-                'right': 0.0214471, # terminal node 37
+                'index': 2, 
+                #'right': 0.0214471, # terminal node 37 (modifcacao 12)
+                'right':{
+                    'index': 3,
+                    'right':{
+                        'index':2,
+                        'right': 0.044, # terminal node 38
+                        'value': 1343.19, 
+                        'left': 0.017 # terminal node 37
+                    },
+                    'value': 9.5, 
+                    'left': 0.004 # terminal node 36
+                },
                 'value': 1130.84399, 
                 'left': {
-                    'index': 2, 
-                    'right': 0.0408473, # terminal node 36
-                    'value': 5.29967, 
-                    'left': 0.0818293 # terminal node 35
+                    'index': 3, #'index': 2, (modificacao 11)
+                    #'right': 0.0408473, (modificacao 11)
+                    'right':{
+                        'index': 2,
+                        'right': 0.131, # terminal node 35
+                        'value': 1111.9, 
+                        'left': 0.054 # terminal node 34
+                    },
+                    'value': 281.5, #'value': 5.29967, (modificacao 11)
+                    'left': 0.038 # terminal node 33 'left': 0.0818293 (modificacao)
                 }
             }, 
             'value': 6.08065, 
@@ -32,78 +49,80 @@ tree = {
                 'index': 1, 
                 'right': {
                     'index': 0, 
-                    'right': 0.175359, # terminal node 34
+                    'right': 0.175359, # terminal node 32
                     'value': 5.89440, 
-                    'left': 0.0575384 # terminal node 33
+                    'left': 0.0575384 # terminal node 31
                 }, 
                 'value': 624.57501, 
                 'left': {
                     'index': 1, 
-                    'right': {
-                        'index': 0, 
-                        'right': 0.202195, # terminal node 32
-                        'value': 4.63185, 
-                        'left': 0.0978987 # terminal node 31
-                    }, 
+                    'right': 0.155, # terminal node 30
+                    #(Modificacao 10) 
+                    #'right': {
+                    #    'index': 0, 
+                    #    'right': 0.202195, # terminal node 32
+                    #    'value': 4.63185, 
+                    #    'left': 0.0978987 # terminal node 31
+                    #}, 
                     'value': 506.88501, 
-                    'left': 0.0315917 # terminal node 30
+                    'left': 0.0315917 # terminal node 29
                 }
             }
         }, 
         'value': 55.50000, 
         'left': {
-            'index': 3, 
+            'index': 2, 
             'right': {
-                'index': 7, #'index': 1, (Modificacao 06) 
-                'right': 0.0473021, # terminal node 29
+                'index': 6, #'index': 1, (Modificacao 06) 
+                'right': 0.0473021, # terminal node 28
                 'value': 24.66975, #'value': 736.80499, (Modificacao 06)
                 'left': {
-                    'index': 5, 
+                    'index': 3, #'index': 5, (Modificacao 09)
                     'right': {
-                        'index': 3, 
+                        'index': 2, 
                         'right': {
                             'index': 1, #'index': 0, (Modificacao 07)
-                            'right': 0.586747, # terminal node 28
-                            'value': 1086.23499, #'value': 24.23654, (Modificacao 07)
-                            'left': 0.0750805 # terminal node 27
+                            'right': 0.571, # terminal node 27 'right': 0.586747, (Modificacao 09)
+                            'value': 1120.41, #'value': 24.23654, (Modificacao 07) 'value': 1086.23499, (Modificacao 09)
+                            'left': 0.097 # terminal node 26 'left': 0.0750805 (Modificacao 09)
                         }, 
-                        'value': 1371.60449, 
-                        'left': 0.125505 # terminal node 26
+                        'value': 1369.48, #'value': 1371.60449, (Modificacao 09)
+                        'left': 0.101 # terminal node 25 'left': 0.125505 (Modificacao 09)
                     }, 
-                    'value': 6, 
-                    'left': 0.0639006 # terminal node 25
+                    'value': 76.5, #'value': 6, (Modificacao 09)
+                    'left': 0.038 # terminal node 24 'left': 0.0639006 (Modificacao 09)
                 }
             }, 
             'value': 1169.50452, 
             'left': {
-                'index': 7, 
-                'right': 0.0699455, # terminal node 24
+                'index': 6, 
+                'right': 0.0699455, # terminal node 23
                 'value': 25.03165, 
-                'left': 0.185039 # terminal node 23
+                'left': 0.185039 # terminal node 22
             }
         }
     }, 
     'value': 3.63463, 
     'left': {
-        'index': 5, 
+        'index': 4, 
         'right': {
-            'index': 3, 
+            'index': 2, 
             'right': {
-                'index': 7, 
+                'index': 6, 
                 'right': {
                     'index': 0, 
                     'right': {
-                        'index': 3, #'index': 0, (Modificacao 05)
-                        'right': 0.571113, # terminal node 22
+                        'index': 2, #'index': 0, (Modificacao 05)
+                        'right': 0.571113, # terminal node 21
                         'value': 1382.34058, #'value': 2.50642, (Modificacao 05)
-                        'left': 0.239003 # terminal node 21
+                        'left': 0.239003 # terminal node 20
                     }, 
                     'value': 2.35704, 
                     'left': {
-                        'index': 3, #'index': 7, (Modificacao 04)
-                        'right': 0.338749, # terminal node 20
+                        'index': 2, #'index': 7, (Modificacao 04)
+                        'right': 0.338749, # terminal node 19
                         'value': 1400.65942, #'value': 24.71705, (Modificacao 04)
-                        'left': 0.0901171 # terminal node 19
+                        'left': 0.0901171 # terminal node 18
                     }
                 }, 
                 'value': 24.68275, 
@@ -111,47 +130,49 @@ tree = {
                     'index': 1, 
                     'right': {
                         'index': 0, 
-                        'right': 0.52072, # terminal node 18
+                        'right': 0.52072, # terminal node 17
                         'value': 2.35704, 
-                        'left': 0.0606344 # terminal node 17
+                        'left': 0.0606344 # terminal node 16
                     }, 
                     'value': 854.57001, 
                     'left': {
                         'index': 1, 
-                        'right': 0.748276, # terminal node 16
+                        'right': 0.748276, # terminal node 15
                         'value': 684.70502, 
-                        'left': 0.281141 # terminal node 15
+                        'left': 0.281141 # terminal node 14
                     }
                 }
             }, 
             'value': 1350.50757, 
             'left': {
                 'index': 1, 
-                'right': 0.250526, # terminal node 14
+                'right': 0.250526, # terminal node 13
                 'value': 859.72498, 
-                'left': {
-                    'index': 3, #'index': 7, (Modificacao 03)
-                    'right': 0.150805, # terminal node 13
-                    'value': 1236.05347, #'value': 24.75305, (Modificacao 03)
-                    'left': 0.0372407 # terminal node 12
-                }
+                'left': 0.121 # terminal node 12
+                #(Modificacao 08)
+                #'left'{
+                #    'index': 3, #'index': 7, (Modificacao 03)
+                #    'right': 0.150805, # terminal node 13
+                #    'value': 1236.05347, #'value': 24.75305, (Modificacao 03)
+                #    'left': 0.0372407 # terminal node 12
+                #}
             }
         }, 
         'value': 8, 
         'left': {
-            'index': 3, 
+            'index': 2, 
             'right': {
                 'index': 0,
                 'right': 0.139411, # terminal node 11
                 'value': 3.26368, 
                 'left': {
-                    'index': 3, #'index': 4, (Modificacao 01)
+                    'index': 2, #'index': 4, (Modificacao 01)
                     'right': {
-                        'index': 6,
+                        'index': 5,
                         'right': 0.0499697, # terminal node 10
                         'value': 44.50000, 
                         'left': {
-                            'index': 3, #'index': 7, (Modificacao 02)
+                            'index': 2, #'index': 7, (Modificacao 02)
                             'right': 0.131192, # terminal node 09
                             'value': 1236.40845, #'value': 24.79185, (Modificacao 02)
                             'left': 0.0168376 # terminal node 08
@@ -177,9 +198,9 @@ tree = {
                 }, 
                 'value': 556.09497, 
                 'left': {
-                    'index': 3, 
+                    'index': 2, 
                     'right': {
-                        'index': 3, 
+                        'index': 2, 
                         'right': 0.18456, # terminal node 03
                         'value': 1090.74597, 
                         'left': 0.330305 # terminal node 02
@@ -244,12 +265,12 @@ class FireAlert (object):
         worksheet2 = workbook2.create_sheet()
         for index, cells in enumerate(worksheet1.iter_rows()):
             if index != 0:
-                row = [float(cells[2].value), float(cells[3].value), float(cells[4].value), float(cells[5].value), float(cells[6].value), FireAlert().str_to_int(cells[7].value), float(cells[8].value), float(cells[9].value)]
+                row = [float(cells[2].value), float(cells[3].value), float(cells[4].value), float(cells[5].value), FireAlert().str_to_int(cells[6].value), float(cells[7].value), float(cells[8].value)]
                 score = FireAlert().predict(tree, row)
                 print 'Calculando {0} de {1}\r'.format(index+1, worksheet1.max_row),
-                worksheet2.append([float(cells[0].value), float(cells[1].value), float(cells[2].value), float(cells[3].value), float(cells[4].value), float(cells[5].value), float(cells[6].value), cells[7].value, int(cells[8].value), float(cells[9].value), float(cells[10].value), score])
+                worksheet2.append([float(cells[0].value), float(cells[1].value), float(cells[2].value), float(cells[3].value), float(cells[4].value), float(cells[5].value), cells[6].value, int(cells[7].value), float(cells[8].value), float(cells[9].value), score])
             else:
-                worksheet2.append([cells[0].value, cells[1].value, cells[2].value, cells[3].value, cells[4].value, cells[5].value, cells[6].value, cells[7].value, cells[8].value, cells[9].value, cells[10].value, cells[11].value])
+                worksheet2.append([cells[0].value, cells[1].value, cells[2].value, cells[3].value, cells[4].value, cells[5].value, cells[6].value, cells[7].value, cells[8].value, cells[9].value, cells[10].value])
         workbook2.save(os.path.join(self.__location__, 'dados_saida.xlsx'))
 
 if __name__ == '__main__':
