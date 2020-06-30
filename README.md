@@ -1,4 +1,4 @@
-## Aŕvore de predição de zonas de risco de incêndio no estado do Espírito Santo
+## Árvore de predição de zonas de risco de incêndio no estado do Espírito Santo
 
 ### Objetivo
 Esse algoritmo é a implementação das regras da árvore de decisão geradas na Tese de Doutorado de **Ronie Silva Juvanhol**, entitulada **Aprendizado de máquina na modelagem de incêncios florestais no estado do Espírito Santo (2017)**.
